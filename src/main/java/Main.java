@@ -10,6 +10,7 @@ public class Main {
         br = new BufferedReader(new InputStreamReader(System.in));
         game.showMenu();
         do{
+            System.out.print("Command : ");
             input = br.readLine();
             output = game.run(input);
             System.out.println(output);

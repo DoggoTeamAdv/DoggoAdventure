@@ -7,6 +7,7 @@ public class OutputGame {
             "go", "take", "unlock", "open", "use", "quit"));
     List<String> noun = new ArrayList<>(Arrays.asList(
             "north", "west", "south", "east", "bark", "door", "key", "crypto", "chest"));
+
     private Player doggo;
 
     public Player getPlayer() {
@@ -19,6 +20,15 @@ public class OutputGame {
         doggo = nDoggo;
     }
 
+    List<Scene> map = new ArrayList<Scene>();
+    public OutputGame () {
+        map.add(new Scene("Start", "You are finally awake, go get them!", "", "Old House", "", "West Side"));
+        map.add(new Scene("West Side", "Welcome to the West Side, you must find Will Smith", "", "Start", "China Town", ""));
+        map.add(new Scene("China Town", "Ching Chang Chong, the pigeons infront of you are looking sus..", "West Side", "", "", ""));
+        map.add(new Scene("Old House", "Rusty old house, it seems like someone was here recently...", "", "", "", "Start"));
+        doggo = new Player("Doggo", map.get(0));
+
+    }
 
     public void showMenu() {
         String s;
@@ -44,7 +54,7 @@ public class OutputGame {
                 System.exit(0);
                 break;
             case "go":
-                boolean moved = doggo.goTowards(Direction.convert(words[1]));
+                boolean moved = doggo.goTowards(Direction.convert(words[1]),map);
                 if (moved) {
                     message = doggo.getLocation().getDescription();
                 } else {

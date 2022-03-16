@@ -1,9 +1,12 @@
+import java.util.List;
+
 public class Player {
     private String name;
     private Scene location;
-    public Player(String pName,  Scene pLocation){
-        this.name=pName;
-        location=pLocation;
+
+    public Player(String pName, Scene pLocation) {
+        this.name = pName;
+        location = pLocation;
     }
 
     public void setLocation(Scene location) {
@@ -13,31 +16,34 @@ public class Player {
     public Scene getLocation() {
         return location;
     }
-    public boolean goTowards(Direction dir){
-        int go;
-        switch(dir){
+
+    public boolean goTowards(Direction dir, List<Scene> map) {
+        String sceneToGoTo;
+        switch (dir) {
             case north:
-                go=location.getNorth();
+                sceneToGoTo = location.getNorth();
                 break;
             case east:
-                go=location.getEast();
+                sceneToGoTo = location.getEast();
                 break;
             case west:
-                go=location.getWest();
+                sceneToGoTo = location.getWest();
                 break;
             case south:
-                go=location.getSouth();
+                sceneToGoTo = location.getSouth();
                 break;
             default:
                 return false;
-
         }
-        if (false){
-            System.out.println("No");
+        if (sceneToGoTo.isEmpty()) {
+            return false;
         }
-        else{
-            getLocation().getDescription();
+        for (Scene scene : map) {
+            if (scene.getName()==sceneToGoTo) {
+                location = scene;
+                return true;
+            }
         }
-        return true;
+        return false;
     }
 }
