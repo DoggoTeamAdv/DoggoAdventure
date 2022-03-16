@@ -11,12 +11,10 @@ public class OutputGame {
     private Player doggo;
 
     public Player getPlayer() {
-
         return doggo;
     }
 
     public void setPlayer(Player nDoggo) {
-
         doggo = nDoggo;
     }
 
@@ -30,13 +28,13 @@ public class OutputGame {
 
     }
 
-    public void showMenu() {
-        String s;
-        s = "Welcome to The Doggo Adventures! \n" +
+    public void showIntro() {
+        String intro;
+        intro = "Welcome to The Doggo Adventures! \n" +
                 "Your goal is to become the best Crypto that has ever existed\n" +
                 "Therefore, you must destroy all the top ones so go find them!\n" +
                 "Good luck!";
-        System.out.println(s);
+        System.out.println(intro);
     }
 
     public String run(String userInput) {

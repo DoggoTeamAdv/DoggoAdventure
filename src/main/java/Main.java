@@ -8,7 +8,7 @@ public class Main {
         String input,output;
         OutputGame game = new OutputGame();
         br = new BufferedReader(new InputStreamReader(System.in));
-        game.showMenu();
+        game.showIntro();
         do{
             System.out.print("Command : ");
             input = br.readLine();
