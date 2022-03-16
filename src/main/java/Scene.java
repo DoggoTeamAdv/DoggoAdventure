@@ -18,7 +18,7 @@ public class Scene {
         this.north = north;
     }
 
-    public int getEast() {
+    public String getEast() {
         return east;
     }
     public void setEast(int east) {
