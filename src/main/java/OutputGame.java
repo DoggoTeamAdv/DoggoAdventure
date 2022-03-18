@@ -16,7 +16,6 @@ public class OutputGame {
     }
 
     public void setPlayer(Player nDoggo) {
-
         doggo = nDoggo;
     }
 
@@ -30,16 +29,17 @@ public class OutputGame {
 
     }
 
-    public void showMenu() {
-        String s;
-        s = "Welcome to The Doggo Adventures! \n" +
+    public void showIntro() {
+        String intro;
+        intro = "Welcome to The Doggo Adventures! \n" +
                 "Your goal is to become the best Crypto that has ever existed\n" +
                 "Therefore, you must destroy all the top ones so go find them!\n" +
                 "Good luck!";
-        System.out.println(s);
+        System.out.println(intro);
     }
 
     public String run(String userInput) {
+        String playerLocation = "";
         String message = "";
         String[] words = userInput.toLowerCase().split(" ");
         if (words.length > 2) {
@@ -52,6 +52,10 @@ public class OutputGame {
         switch (words[0]) {
             case "quit":
                 System.exit(0);
+                break;
+            case "location":
+                playerLocation = doggo.getLocation().getName();
+                System.out.println("Location : " + playerLocation );
                 break;
             case "go":
                 boolean moved = doggo.goTowards(Direction.convert(words[1]),map);
