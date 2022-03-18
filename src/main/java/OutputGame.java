@@ -2,6 +2,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+//TODO: Make the Descriptions changable
+//TODO: Make Scenes into Scenes by declaring a tasks at a direction rather than a new "Room"
+//TODO: help command to chow at user the available commands
+
 public class OutputGame {
     List<String> verb = new ArrayList<>(Arrays.asList(
             "go", "take", "unlock", "open", "use", "quit"));
@@ -24,6 +28,7 @@ public class OutputGame {
         map.add(new Scene("West Side", "Welcome to the West Side, you must find Will Smith", "", "Start", "China Town", ""));
         map.add(new Scene("China Town", "Ching Chang Chong, the pigeons infront of you are looking sus..", "West Side", "", "", ""));
         map.add(new Scene("Old House", "Rusty old house, it seems like someone was here recently...", "", "", "", "Start"));
+
         doggo = new Player("Doggo", map.get(0));
 
     }
