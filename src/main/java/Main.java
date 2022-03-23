@@ -6,10 +6,9 @@ import java.io.InputStreamReader;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        BufferedReader br;
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String input,output;
         OutputGame game = new OutputGame();
-        br = new BufferedReader(new InputStreamReader(System.in));
         game.showIntro();
         do{
             System.out.print("Command : ");

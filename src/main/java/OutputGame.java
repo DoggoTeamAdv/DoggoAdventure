@@ -4,7 +4,7 @@ import java.util.List;
 
 //TODO: Make the Descriptions changable
 //TODO: Make Scenes into Scenes by declaring a tasks at a direction rather than a new "Room"
-//TODO: help command to chow at user the available commands
+//TODO: help command to show at user the available commands
 
 public class OutputGame {
     List<String> verb = new ArrayList<>(Arrays.asList(
