@@ -44,6 +44,7 @@ public class OutputGame {
 
     public String run(String userInput) {
         String playerLocation = "";
+        String SceneDescription= "";
         String message = "";
         String[] words = userInput.toLowerCase().split(" ");
         if (words.length > 2) {
@@ -59,7 +60,8 @@ public class OutputGame {
                 break;
             case "location":
                 playerLocation = doggo.getLocation().getName();
-                System.out.println("Location : " + playerLocation );
+                SceneDescription = doggo.getLocation().getDescription();
+                message = "Location : " + playerLocation+". " + SceneDescription;
                 break;
             case "go":
                 boolean moved = doggo.goTowards(Direction.convert(words[1]),map);
