@@ -29,6 +29,7 @@ public class Scene {
     public String getSouth() {
         return south;
     }
+
     public void setSouth(String south) {
         this.south = south;
     }
