@@ -9,8 +9,6 @@ import java.util.List;
 //TODO: Items->Class with categories etc edible, drinkable
 
 
-
-
 public class OutputGame {
     List<String> verb = new ArrayList<>(Arrays.asList(
             "bark", "go", "take", "drop", "use", "eat", "fart", "quit"));
@@ -20,11 +18,14 @@ public class OutputGame {
     private Player doggo;
 
     List<Scene> map = new ArrayList<Scene>();
-    public OutputGame () {
-        map.add(new Scene("Start", "You are finally awake, go get them!", "", "Old House", "", "West Side"));
+
+    public OutputGame() {
+        map.add(new Scene("Start", "You are finally awake, go get them!", "Castle", "Old House", "Pigeons", "West Side"));
         map.add(new Scene("West Side", "Welcome to the West Side, you must find Will Smith", "", "Start", "China Town", ""));
         map.add(new Scene("China Town", "Ching Chang Chong, the pigeons infront of you are looking sus..", "West Side", "", "", ""));
         map.add(new Scene("Old House", "Rusty old house, it seems like someone was here recently...", "", "", "", "Start"));
+        map.add(new Scene("Pigeons", "Lalalal", "Start", "West Side", "", "Old House"));
+        map.add(new Scene("Castle", "You are not ready yet", "", "", "Start", ""));
 
         doggo = new Player("Doggo", map.get(0));
 
@@ -38,10 +39,11 @@ public class OutputGame {
                 "Good luck!";
         System.out.println(intro);
     }
+
     //TODO: Make this a parser
     public String run(String userInput) {
         String playerLocation = "";
-        String SceneDescription= "";
+        String SceneDescription = "";
         String message = "";
         String[] words = userInput.toLowerCase().split(" ");
         if (words.length > 2) {
@@ -58,10 +60,10 @@ public class OutputGame {
             case "location":
                 playerLocation = doggo.getLocation().getName();
                 SceneDescription = doggo.getLocation().getDescription();
-                message = "Location : " + playerLocation+". " + SceneDescription;
+                message = "Location : " + playerLocation + ". " + SceneDescription;
                 break;
             case "go":
-                boolean moved = doggo.goTowards(Direction.convert(words[1]),map);
+                boolean moved = doggo.goTowards(Direction.convert(words[1]), map);
                 if (moved) {
                     message = doggo.getLocation().getDescription();
                 } else {
