@@ -1,6 +1,7 @@
 public class Scene {
     private String name, description;
     private String north,east,west,south;
+    private Inventory sceneItems = new Inventory();
 
     public Scene(String sName, String sDescription, String sNorth, String sEast, String sSouth, String sWest) {
         this.name = sName;
@@ -55,4 +56,14 @@ public class Scene {
         this.name = name;
     }
 
+    public void addItem(Item it){
+        sceneItems.addItem(it);
+    }
+    public Item removeItem(String itemName){
+       return sceneItems.removeItem(itemName);
+    }
+
+    public Item getItem(String itName) {
+        return sceneItems.getItem(itName);
+    }
 }
