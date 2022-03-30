@@ -11,7 +11,7 @@ public class Main {
         OutputGame game = new OutputGame();
         game.showIntro();
         do{
-            System.out.print("Command : ");
+            System.out.print("> ");
             input = br.readLine();
             output = game.run(input);
             System.out.println(output);
