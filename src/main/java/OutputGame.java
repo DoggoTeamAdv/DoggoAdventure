@@ -57,8 +57,19 @@ public class OutputGame {
     }
 
 
+    public void showMenu(){
+        String menu;
+        menu =  "====================================================================================\n"+
+                "▀█▀ █ █ █▀▀   █▀▄ █▀█ █▀▀ █▀▀ █▀█   ▄▀▄ █▀▄ █ █ █▀▀ █▄ █ ▀█▀ █ █ █▀█ █▀▀ \n" +
+                " █  █▀█ ██▄   █▄▀ █▄█ █▄█ █▄█ █▄█   █▀█ █▄▀ ▀▄▀ ██▄ █ ▀█  █  █▄█ █▀▄ ██▄ \n" +
+                "====================================================================================\n"+
+                "                                    1.NEW GAME                                       \n"+
+                "                                    2.LOAD GAME                                      \n"+
+                "                                    3.QUIT                                           \n"+
+                "------------------------------------------------------------------------------------\n";
 
-
+        System.out.println(menu);
+    }
 
     //TODO: Make this a parser
     public String run(String userInput) {
@@ -80,7 +91,7 @@ public class OutputGame {
             case "location":
                 playerLocation = doggo.getLocation().getName();
                 SceneDescription = doggo.getLocation().getDescription();
-                message = "Location : " + playerLocation + ". " + SceneDescription;
+                message = "Location : " + playerLocation + " ( Place Description : " + SceneDescription + " ) ";
                 break;
             case "go":
                 boolean moved = doggo.goTowards(Direction.convert(words[1]), map);
