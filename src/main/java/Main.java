@@ -10,7 +10,6 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in)),br2 = new BufferedReader(new InputStreamReader(System.in));
         String input,output,startOption;
         OutputGame game = new OutputGame();
-
         game.showMenu();
         System.out.print("Pick An Option (Number) : ");
         startOption = br2.readLine();
