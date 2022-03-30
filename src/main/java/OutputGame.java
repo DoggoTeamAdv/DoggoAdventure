@@ -19,15 +19,6 @@ public class OutputGame {
 
     List<Scene> map = new ArrayList<Scene>();
 
-    public OutputGame () {
-        map.add(new Scene("Start", "It's a beautiful day to be the most famous crypto!", "", "Old House", "", "West Side"));
-        map.add(new Scene("West Side", "Welcome to the West Side,wait..is that Will Smith?", "", "Start", "China Town", ""));
-        map.add(new Scene("China Town", "Ching Chang Chong,shame the door of the diner is locked", "West Side", "", "", ""));
-        map.add(new Scene("Old House", "A rusty old house, my dog sense smells something in there", "", "", "", "Start"));
-        map.add(new Scene("Pigeons", "Cooo cooooo,those pigeons seem very anxious", "Start", "West Side", "", "Old House"));
-        map.add(new Scene("Castle", "That's a big castle,with a big lock on its entrance", "", "", "Start", ""));
-
-
     public OutputGame() {
         map.add(new Scene("Start", "You are finally awake, go get them!", "Castle", "Old House", "Pigeons", "West Side"));
         map.get(0).addItem(new Item("Chest Key", "A key that opens a chest", ""));
