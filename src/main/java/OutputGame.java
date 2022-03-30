@@ -61,10 +61,10 @@ public class OutputGame {
             case "location":
                 playerLocation = doggo.getLocation().getName();
                 SceneDescription = doggo.getLocation().getDescription();
-                message = "Location : " + playerLocation+". " + SceneDescription;
+                message = "Location : " + playerLocation + ". " + SceneDescription;
                 break;
             case "go":
-                boolean moved = doggo.goTowards(Direction.convert(words[1]),map);
+                boolean moved = doggo.goTowards(Direction.convert(words[1]), map);
                 if (moved) {
                     message = doggo.getLocation().getDescription();
                 } else {
