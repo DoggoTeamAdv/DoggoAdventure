@@ -5,29 +5,27 @@ import java.util.List;
 //TODO: Make the Descriptions changable
 //TODO: Make Scenes into Scenes by declaring a tasks at a direction rather than a new "Room"
 //TODO: help command to show at user the available commands
+//TODO: Fix go south east bug
+//TODO: Items->Class with categories etc edible, drinkable
+
 
 public class OutputGame {
     List<String> verb = new ArrayList<>(Arrays.asList(
-            "go", "take", "unlock", "open", "use", "quit"));
+            "bark", "go", "take", "drop", "use", "eat", "fart", "quit"));
     List<String> noun = new ArrayList<>(Arrays.asList(
             "north", "west", "south", "east", "bark", "door", "key", "crypto", "chest"));
 
     private Player doggo;
 
-    public Player getPlayer() {
-        return doggo;
-    }
-
-    public void setPlayer(Player nDoggo) {
-        doggo = nDoggo;
-    }
-
     List<Scene> map = new ArrayList<Scene>();
-    public OutputGame () {
-        map.add(new Scene("Start", "You are finally awake, go get them!", "", "Old House", "", "West Side"));
+
+    public OutputGame() {
+        map.add(new Scene("Start", "You are finally awake, go get them!", "Castle", "Old House", "Pigeons", "West Side"));
         map.add(new Scene("West Side", "Welcome to the West Side, you must find Will Smith", "", "Start", "China Town", ""));
         map.add(new Scene("China Town", "Ching Chang Chong, the pigeons infront of you are looking sus..", "West Side", "", "", ""));
         map.add(new Scene("Old House", "Rusty old house, it seems like someone was here recently...", "", "", "", "Start"));
+        map.add(new Scene("Pigeons", "Lalalal", "Start", "West Side", "", "Old House"));
+        map.add(new Scene("Castle", "You are not ready yet", "", "", "Start", ""));
 
         doggo = new Player("Doggo", map.get(0));
 
@@ -42,9 +40,10 @@ public class OutputGame {
         System.out.println(intro);
     }
 
+    //TODO: Make this a parser
     public String run(String userInput) {
         String playerLocation = "";
-        String SceneDescription= "";
+        String SceneDescription = "";
         String message = "";
         String[] words = userInput.toLowerCase().split(" ");
         if (words.length > 2) {
@@ -61,10 +60,10 @@ public class OutputGame {
             case "location":
                 playerLocation = doggo.getLocation().getName();
                 SceneDescription = doggo.getLocation().getDescription();
-                message = "Location : " + playerLocation+". " + SceneDescription;
+                message = "Location : " + playerLocation + ". " + SceneDescription;
                 break;
             case "go":
-                boolean moved = doggo.goTowards(Direction.convert(words[1]),map);
+                boolean moved = doggo.goTowards(Direction.convert(words[1]), map);
                 if (moved) {
                     message = doggo.getLocation().getDescription();
                 } else {
@@ -74,7 +73,6 @@ public class OutputGame {
             default:
                 message = "Doggo doesn't know how to " + words[0] + "....";
                 break;
-
         }
         return message;
     }
