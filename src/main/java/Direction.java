@@ -1,5 +1,3 @@
-import java.util.Locale;
-
 public enum Direction {
     north,
     south,

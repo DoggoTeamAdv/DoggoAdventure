@@ -11,22 +11,21 @@ public class Scene {
         this.west = sWest;
     }
 
+    //NORTH
     public String getNorth() {
         return north;
     }
-
     public void setNorth(String north) {
         this.north = north;
     }
-
+    //EAST
     public String getEast() {
         return east;
     }
-
     public void setEast(String east) {
         this.east = east;
     }
-
+    //SOUTH
     public String getSouth() {
         return south;
     }
@@ -34,7 +33,7 @@ public class Scene {
     public void setSouth(String south) {
         this.south = south;
     }
-
+    //WEST
     public String getWest() {
         return west;
     }
@@ -55,4 +54,5 @@ public class Scene {
     public void setName(String name) {
         this.name = name;
     }
+
 }

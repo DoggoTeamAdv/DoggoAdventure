@@ -11,13 +11,14 @@ import java.util.List;
 
 public class OutputGame {
     List<String> verb = new ArrayList<>(Arrays.asList(
-            "go", "take", "unlock", "open", "use", "quit"));
+            "bark", "go", "take", "drop", "use", "eat", "fart", "quit"));
     List<String> noun = new ArrayList<>(Arrays.asList(
             "north", "west", "south", "east", "bark", "door", "key", "crypto", "chest"));
 
     private Player doggo;
 
     List<Scene> map = new ArrayList<Scene>();
+
     public OutputGame () {
         map.add(new Scene("Start", "It's a beautiful day to be the most famous crypto!", "", "Old House", "", "West Side"));
         map.add(new Scene("West Side", "Welcome to the West Side,wait..is that Will Smith?", "", "Start", "China Town", ""));
@@ -25,6 +26,16 @@ public class OutputGame {
         map.add(new Scene("Old House", "A rusty old house, my dog sense smells something in there", "", "", "", "Start"));
         map.add(new Scene("Pigeons", "Cooo cooooo,those pigeons seem very anxious", "Start", "West Side", "", "Old House"));
         map.add(new Scene("Castle", "That's a big castle,with a big lock on its entrance", "", "", "Start", ""));
+
+
+    public OutputGame() {
+        map.add(new Scene("Start", "You are finally awake, go get them!", "Castle", "Old House", "Pigeons", "West Side"));
+        map.add(new Scene("West Side", "Welcome to the West Side, you must find Will Smith", "", "Start", "China Town", ""));
+        map.add(new Scene("China Town", "Ching Chang Chong, the pigeons infront of you are looking sus..", "West Side", "", "", ""));
+        map.add(new Scene("Old House", "Rusty old house, it seems like someone was here recently...", "", "", "", "Start"));
+        map.add(new Scene("Pigeons", "Lalalal", "Start", "West Side", "", "Old House"));
+        map.add(new Scene("Castle", "You are not ready yet", "", "", "Start", ""));
+
 
         doggo = new Player("Doggo", map.get(0));
 
@@ -40,6 +51,7 @@ public class OutputGame {
         System.out.println(intro);
     }
 
+    //TODO: Make this a parser
     public String run(String userInput) {
         String playerLocation = "";
         String SceneDescription = "";
@@ -62,7 +74,7 @@ public class OutputGame {
                 message = "Location : " + playerLocation + ". " + SceneDescription;
                 break;
             case "go":
-                boolean moved = doggo.goTowards(Direction.convert(words[1]),map);
+                boolean moved = doggo.goTowards(Direction.convert(words[1]), map);
                 if (moved) {
                     message = doggo.getLocation().getDescription();
                 } else {
@@ -72,7 +84,6 @@ public class OutputGame {
             default:
                 message = "Woof! What does " + words[0] + " mean";
                 break;
-
         }
         return message;
     }
