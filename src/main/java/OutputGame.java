@@ -5,6 +5,11 @@ import java.util.List;
 //TODO: Make the Descriptions changable
 //TODO: Make Scenes into Scenes by declaring a tasks at a direction rather than a new "Room"
 //TODO: help command to show at user the available commands
+//TODO: Fix go south east bug
+//TODO: Items->Class with categories etc edible, drinkable
+
+
+
 
 public class OutputGame {
     List<String> verb = new ArrayList<>(Arrays.asList(
@@ -13,14 +18,6 @@ public class OutputGame {
             "north", "west", "south", "east", "bark", "door", "key", "crypto", "chest"));
 
     private Player doggo;
-
-    public Player getPlayer() {
-        return doggo;
-    }
-
-    public void setPlayer(Player nDoggo) {
-        doggo = nDoggo;
-    }
 
     List<Scene> map = new ArrayList<Scene>();
     public OutputGame () {
@@ -41,7 +38,7 @@ public class OutputGame {
                 "Good luck!";
         System.out.println(intro);
     }
-
+    //TODO: Make this a parser
     public String run(String userInput) {
         String playerLocation = "";
         String SceneDescription= "";
@@ -74,7 +71,6 @@ public class OutputGame {
             default:
                 message = "Doggo doesn't know how to " + words[0] + "....";
                 break;
-
         }
         return message;
     }
