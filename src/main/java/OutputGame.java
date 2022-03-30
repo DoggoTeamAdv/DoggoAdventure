@@ -13,7 +13,7 @@ import java.util.List;
 
 public class OutputGame {
     List<String> verb = new ArrayList<>(Arrays.asList(
-            "go", "take", "unlock", "open", "use", "quit"));
+            "bark", "go", "take", "drop", "use", "eat", "fart", "quit"));
     List<String> noun = new ArrayList<>(Arrays.asList(
             "north", "west", "south", "east", "bark", "door", "key", "crypto", "chest"));
 
