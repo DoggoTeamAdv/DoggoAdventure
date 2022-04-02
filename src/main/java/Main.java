@@ -10,6 +10,7 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in)),br2 = new BufferedReader(new InputStreamReader(System.in));
         String input,output,startOption;
         OutputGame game = new OutputGame();
+        Parser pars = new Parser();
         game.showMenu();
         System.out.print("Pick An Option (Number) : ");
         startOption = br2.readLine();
@@ -22,7 +23,7 @@ public class Main {
                 do{
                     System.out.print("Command : ");
                     input = br.readLine();
-                    output = game.run(input);
+                    output = pars.run(input, game);
                     System.out.println(output);
 
                 }while (true);
