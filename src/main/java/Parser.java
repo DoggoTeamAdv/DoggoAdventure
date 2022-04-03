@@ -13,6 +13,12 @@ public class Parser {
             case "quit":
                 System.exit(0);
                 break;
+            case "bark":
+                return game.bark();
+            case "fart":
+                return game.fart();
+            case "use":
+                return game.use();
             case "location":
                 return game.getLocationInfo();
             case "go":

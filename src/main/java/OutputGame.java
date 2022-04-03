@@ -10,14 +10,8 @@ import java.util.List;
 
 
 public class OutputGame {
-    List<String> verb = new ArrayList<>(Arrays.asList(
-            "bark", "go", "take", "drop", "use", "eat", "fart", "quit"));
-    List<String> noun = new ArrayList<>(Arrays.asList(
-            "north", "west", "south", "east", "door", "key", "crypto", "chest"));
-
     private Player doggo;
-
-    List<Scene> map = new ArrayList<Scene>();
+    private List<Scene> map = new ArrayList<Scene>();
 
     public OutputGame() {
         map.add(new Scene("Start", "It's a beautiful day to be the most famous crypto!", "Castle", "Old House", "Pigeons", "West Side"));
@@ -44,6 +38,21 @@ public class OutputGame {
 
         doggo = new Player("Doggo", map.get(0));
 
+    }
+
+    public String bark() {
+        // TODO: develop
+        return "Woof! Not developed yet!";
+    }
+
+    public String use() {
+        // TODO: develop
+        return "Woof! Not developed yet!";
+    }
+
+    public String fart() {
+        // TODO: develop
+        return "Prits proots! Not developed yet!";
     }
 
     public String getLocationInfo() {
