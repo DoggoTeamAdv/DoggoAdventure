@@ -1,7 +1,12 @@
-public class Item {
-    private String name,description,categories;
+package Item;
 
-    public Item(String iName,String iDesc,String iCategories)
+import java.util.List;
+
+abstract public class Item {
+    private String name,description;
+    List<Category> categories;
+
+    public Item(String iName,String iDesc, List<Category> iCategories)
     {
         this.name = iName;
         this.description = iDesc;
@@ -29,13 +34,13 @@ public class Item {
     }
 
     //CATEGORIES
-    public String getCategories()
-    {
-        return categories;
-    }
-    public void setCategories(String categories)
-    {
-        this.categories = categories;
+    public boolean isInCategory(Category category) {
+        for (Category myCategory : categories) {
+            if (myCategory==category) {
+                return true;
+            }
+        }
+        return false;
     }
 
 

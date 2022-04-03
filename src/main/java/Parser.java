@@ -18,7 +18,7 @@ public class Parser {
             case "fart":
                 return game.fart();
             case "use":
-                return game.use();
+                return game.use(words[1]);
             case "location":
                 return game.getLocationInfo();
             case "go":
@@ -30,6 +30,8 @@ public class Parser {
                 return game.takeItem(words[1]);
             case "drop":
                 return game.dropItem(words[1]);
+            case "eat":
+                return game.eat(words[1]);
             default:
                 return "Woof! What does " + words[0] + " mean?";
         }

@@ -1,3 +1,6 @@
+import Item.Inventory;
+import Item.Item;
+
 public class Scene {
     private String name, description;
     private String north,east,west,south;

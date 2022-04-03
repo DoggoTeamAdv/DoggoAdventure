@@ -1,5 +1,8 @@
+import Item.*;
+
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 //TODO: Make the Descriptions changable
@@ -15,23 +18,23 @@ public class OutputGame {
 
     public OutputGame() {
         map.add(new Scene("Start", "It's a beautiful day to be the most famous crypto!", "Castle", "Old House", "Pigeons", "West Side"));
-        map.get(0).addItem(new Item("Chest Key", "A key that opens a chest", ""));
+        map.get(0).addItem(new Key("Chest Key", "A key that opens a chest", Arrays.asList( Category.takeable, Category.dropable, Category.usable) ));
 
         map.add(new Scene("West Side", "Welcome to the West Side,wait..is that Will Smith?", "", "Start", "China Town", ""));
-        map.get(1).addItem(new Item("Crypto1", "West sides crypto", ""));
+        map.get(1).addItem(new Crypto("Crypto1", "West sides crypto", Arrays.asList( Category.takeable, Category.dropable, Category.usable)));
 
         map.add(new Scene("China Town", "Ching Chang Chong,shame the door of the diner is locked", "West Side", "", "", ""));
-        map.get(2).addItem(new Item("Store Key", "A key that opens the door", ""));
-        map.get(2).addItem(new Item("Crypto2", "China towns crypto", ""));
-        map.get(2).addItem(new Item("Fish", "A drowning fish", ""));
+        map.get(2).addItem(new Key("Store Key", "A key that opens the door", Arrays.asList( Category.takeable, Category.dropable, Category.usable)));
+        map.get(2).addItem(new Crypto("Crypto2", "China towns crypto", Arrays.asList( Category.takeable, Category.dropable, Category.usable)));
+        map.get(2).addItem(new Food("Fish", "A drowning fish", Collections.singletonList(Category.eatable)));
 
         map.add(new Scene("Old House", "A rusty old house, my dog sense smells something in there", "", "", "", "Start"));
-        map.get(3).addItem(new Item("Chest", "A chest with a key and a crypto inside", ""));
-        map.get(3).addItem(new Item("Axe", "An axe that breaks doors", ""));
-        map.get(3).addItem(new Item("Crypto3", "Old houses crypto", ""));
+        //map.get(3).addItem(new Item("Chest", "A chest with a key and a crypto inside", Arrays.asList( Category.takeable, Category.dropable, Category.usable)));
+        map.get(3).addItem(new Weapon("Axe", "An axe that breaks doors", Arrays.asList( Category.takeable, Category.dropable, Category.usable)));
+        map.get(3).addItem(new Crypto("Crypto3", "Old houses crypto", Arrays.asList( Category.takeable, Category.dropable, Category.usable)));
 
         map.add(new Scene("Pigeons", "Cooo cooooo,those pigeons seem very anxious", "Start", "West Side", "", "Old House"));
-        map.get(4).addItem(new Item("Crypto4", "Pigeons crypto", ""));
+        map.get(4).addItem(new Crypto("Crypto4", "Pigeons crypto", Arrays.asList( Category.takeable, Category.dropable, Category.usable)));
 
         map.add(new Scene("Castle", "That's a big castle,with a big lock on its entrance", "", "", "Start", ""));
 
@@ -41,20 +44,20 @@ public class OutputGame {
     }
 
     public String bark() {
-        // TODO: develop
-        return "Woof! Not developed yet!";
+        return doggo.bark();
     }
 
-    public String use() {
-        // TODO: develop
-        return "Woof! Not developed yet!";
+    public String use(String itemStr) {
+        return doggo.use(itemStr);
     }
 
     public String fart() {
-        // TODO: develop
-        return "Prits proots! Not developed yet!";
+        return doggo.fart();
     }
 
+    public  String eat(String itemStr){
+        return doggo.eat(itemStr);
+    }
     public String getLocationInfo() {
         String playerLocation, sceneDescription;
         playerLocation = doggo.getLocation().getName();

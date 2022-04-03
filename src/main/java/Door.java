@@ -1,3 +1,5 @@
+import Item.Item;
+
 public class Door {
     Item item;
     String name,desc,keyID;
