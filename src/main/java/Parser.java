@@ -1,5 +1,9 @@
+import java.io.IOException;
+
 public class Parser {
-    public String run(String userInput, OutputGame game) {
+    Menu mainMenu;
+
+    public String run(String userInput, OutputGame game) throws IOException {
         String[] words = userInput.toLowerCase().split(" ");
         if (words.length > 2) {
             System.out.println("Doggo don't understand more than 2 words :(");
@@ -24,6 +28,9 @@ public class Parser {
                 return game.takeItem(words[1]);
             case "drop":
                 return game.dropItem(words[1]);
+            case "menu":
+               /* mainMenu.showMenu();
+                mainMenu.menuOption();*/
             default:
                 return "Woof! What does " + words[0] + " mean?";
         }
