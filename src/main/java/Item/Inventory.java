@@ -1,3 +1,5 @@
+package Item;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +30,7 @@ public class Inventory {
         items.remove(index);
         return item;
     }
-    //Gets the name of an Item and returns it if it belongs to the list
+    //Gets the name of an Item.Item and returns it if it belongs to the list
     public Item getItem(String itName){
         int result= indexOf(itName);
         if(result==-1) {
