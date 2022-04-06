@@ -8,10 +8,7 @@ public class Main
 {
     public static void main(String[] args) throws IOException
     {
-        Main mainGame;
         Menu mainMenu = new Menu();
-        OutputGame game = new OutputGame();
-        Parser pars = new Parser();
 
         mainMenu.showMenu();
         mainMenu.menuOption();

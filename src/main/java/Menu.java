@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 //TODO: CHANGE "isMenuOptionValid = true" WHEN LOAD GAME IS COMPLETED
-
+//TODO:
 public class Menu {
     BufferedReader brOption = new BufferedReader(new InputStreamReader(System.in));
     BufferedReader brGame = new BufferedReader(new InputStreamReader(System.in));
@@ -32,7 +32,7 @@ public class Menu {
     {
 
         do{
-            System.out.println("Pick An Option (Number) : ");
+            System.out.print("Pick An Option (Number) : ");
             playerOption = brOption.readLine();
 
             switch (playerOption)
@@ -49,15 +49,15 @@ public class Menu {
                     quitGame();
                     isMenuOptionValid = true;
                     break;
-                case "4":
                 default:
                     System.out.println("" + playerOption + " Is Not A Valid Option! \n");
             }
 
-        }while (isMenuOptionValid == false);
+        }while (!isMenuOptionValid);
     }
 
     public void newGame(String playerOption) throws IOException{
+        game.showIntro();
         do {
             System.out.print("Command : ");
             input = brGame.readLine();
