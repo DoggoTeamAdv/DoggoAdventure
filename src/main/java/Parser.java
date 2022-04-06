@@ -17,8 +17,15 @@ public class Parser {
             case "quit":
                 System.exit(0);
                 break;
+            case "bark":
+                return game.bark();
+            case "fart":
+                return game.fart();
+            case "use":
+                return game.use(words[1]);
             case "location":
                 return game.getLocationInfo();
+            case "move":
             case "go":
                 return game.movePlayer(words[1]);
             case "inventory":
@@ -28,9 +35,11 @@ public class Parser {
                 return game.takeItem(words[1]);
             case "drop":
                 return game.dropItem(words[1]);
-            case "menu":
+            // case "menu":
                /* mainMenu.showMenu();
                 mainMenu.menuOption();*/
+            case "eat":
+                return game.eat(words[1]);
             default:
                 return "Woof! What does " + words[0] + " mean?";
         }
