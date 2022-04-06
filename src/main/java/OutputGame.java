@@ -75,9 +75,9 @@ public class OutputGame {
         }
     }
 
-    public String getInventory() {
-        // TODO: develop
-        return "Not developed yet";
+    public String getInventory(){
+        //TODO : Make it work
+        return "Under Construction";
     }
 
     public String takeItem(String itemStr) {
@@ -100,7 +100,7 @@ public class OutputGame {
     }
 
 
-    public void showMenu() {
+    /*public void showMenu() {
         String menu;
         menu = "====================================================================================\n" +
                 "▀█▀ █ █ █▀▀   █▀▄ █▀█ █▀▀ █▀▀ █▀█   ▄▀▄ █▀▄ █ █ █▀▀ █▄ █ ▀█▀ █ █ █▀█ █▀▀ \n" +
@@ -112,5 +112,5 @@ public class OutputGame {
                 "------------------------------------------------------------------------------------\n";
 
         System.out.println(menu);
-    }
+    }*/
 }
