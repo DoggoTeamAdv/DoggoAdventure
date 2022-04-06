@@ -1,5 +1,8 @@
+import Item.*;
+
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 //TODO: Make the Descriptions changable
@@ -9,34 +12,28 @@ import java.util.List;
 
 
 public class OutputGame {
-    List<String> verb = new ArrayList<>(Arrays.asList(
-            "bark", "go", "take", "drop", "use", "eat", "fart", "quit"));
-    List<String> noun = new ArrayList<>(Arrays.asList(
-            "north", "west", "south", "east", "bark", "door", "key", "crypto", "chest"));
-
     private Player doggo;
-
-    List<Scene> map = new ArrayList<Scene>();
+    private List<Scene> map = new ArrayList<Scene>();
 
     public OutputGame() {
         map.add(new Scene("Start", "It's a beautiful day to be the most famous crypto!", "Castle", "Old House", "Pigeons", "West Side"));
-        map.get(0).addItem(new Item("Chest Key", "A key that opens a chest", ""));
+        map.get(0).addItem(new Key("Chest Key", "A key that opens a chest", Arrays.asList(Category.takeable, Category.dropable, Category.usable)));
 
         map.add(new Scene("West Side", "Welcome to the West Side,wait..is that Will Smith?", "", "Start", "China Town", ""));
-        map.get(1).addItem(new Item("Crypto1", "West sides crypto", ""));
+        map.get(1).addItem(new Crypto("Crypto1", "West sides crypto", Arrays.asList(Category.takeable, Category.dropable, Category.usable)));
 
         map.add(new Scene("China Town", "Ching Chang Chong,shame the door of the diner is locked", "West Side", "", "", ""));
-        map.get(2).addItem(new Item("Store Key", "A key that opens the door", ""));
-        map.get(2).addItem(new Item("Crypto2", "China towns crypto", ""));
-        map.get(2).addItem(new Item("Fish", "A drowning fish", ""));
+        map.get(2).addItem(new Key("Store Key", "A key that opens the door", Arrays.asList(Category.takeable, Category.dropable, Category.usable)));
+        map.get(2).addItem(new Crypto("Crypto2", "China towns crypto", Arrays.asList(Category.takeable, Category.dropable, Category.usable)));
+        map.get(2).addItem(new Food("Fish", "A drowning fish", Collections.singletonList(Category.eatable)));
 
         map.add(new Scene("Old House", "A rusty old house, my dog sense smells something in there", "", "", "", "Start"));
-        map.get(3).addItem(new Item("Chest", "A chest with a key and a crypto inside", ""));
-        map.get(3).addItem(new Item("Axe", "An axe that breaks doors", ""));
-        map.get(3).addItem(new Item("Crypto3", "Old houses crypto", ""));
+        //map.get(3).addItem(new Item("Chest", "A chest with a key and a crypto inside", Arrays.asList( Category.takeable, Category.dropable, Category.usable)));
+        map.get(3).addItem(new Weapon("Axe", "An axe that breaks doors", Arrays.asList(Category.takeable, Category.dropable, Category.usable)));
+        map.get(3).addItem(new Crypto("Crypto3", "Old houses crypto", Arrays.asList(Category.takeable, Category.dropable, Category.usable)));
 
         map.add(new Scene("Pigeons", "Cooo cooooo,those pigeons seem very anxious", "Start", "West Side", "", "Old House"));
-        map.get(4).addItem(new Item("Crypto4", "Pigeons crypto", ""));
+        map.get(4).addItem(new Crypto("Crypto4", "Pigeons crypto", Arrays.asList(Category.takeable, Category.dropable, Category.usable)));
 
         map.add(new Scene("Castle", "That's a big castle,with a big lock on its entrance", "", "", "Start", ""));
 
@@ -45,75 +42,75 @@ public class OutputGame {
 
     }
 
+    public String bark() {
+        return doggo.bark();
+    }
+
+    public String use(String itemStr) {
+        return doggo.use(itemStr);
+    }
+
+    public String fart() {
+        return doggo.fart();
+    }
+
+    public String eat(String itemStr) {
+        return doggo.eat(itemStr);
+    }
+
+    public String getLocationInfo() {
+        String playerLocation, sceneDescription;
+        playerLocation = doggo.getLocation().getName();
+        sceneDescription = doggo.getLocation().getDescription();
+        return "Location : " + playerLocation + " ( Place Description : " + sceneDescription + " ) ";
+    }
+
+    public String movePlayer(String directionStr) {
+        String message;
+        boolean moved = doggo.goTowards(Direction.convert(directionStr), map);
+        if (moved) {
+            return doggo.getLocation().getDescription();
+        } else {
+            return "Can't go " + directionStr;
+        }
+    }
+
+    public String getInventory() {
+        // TODO: develop
+        return "Not developed yet";
+    }
+
+    public String takeItem(String itemStr) {
+        return doggo.take(itemStr);
+    }
+
+    public String dropItem(String itemStr) {
+        return doggo.drop(itemStr);
+    }
+
+
     public void showIntro() {
         String intro;
         intro = "Welcome to The Doggo Adventure! \n" +
                 "Your goal is to become the most famous Crypto that has ever existed\n" +
                 "To do so, you must collect the 4 most famous Cryptos and enter the Castle\n" +
-                "BUT BE CAREFUL!Doors,especially Castle ones, are locked for a reason!\n"+
+                "BUT BE CAREFUL!Doors,especially Castle ones, are locked for a reason!\n" +
                 "Good luck!";
         System.out.println(intro);
     }
 
 
-    public void showMenu(){
+    public void showMenu() {
         String menu;
-        menu =  "====================================================================================\n"+
+        menu = "====================================================================================\n" +
                 "▀█▀ █ █ █▀▀   █▀▄ █▀█ █▀▀ █▀▀ █▀█   ▄▀▄ █▀▄ █ █ █▀▀ █▄ █ ▀█▀ █ █ █▀█ █▀▀ \n" +
                 " █  █▀█ ██▄   █▄▀ █▄█ █▄█ █▄█ █▄█   █▀█ █▄▀ ▀▄▀ ██▄ █ ▀█  █  █▄█ █▀▄ ██▄ \n" +
-                "====================================================================================\n"+
-                "                                    1.NEW GAME                                       \n"+
-                "                                    2.LOAD GAME                                      \n"+
-                "                                    3.QUIT                                           \n"+
+                "====================================================================================\n" +
+                "                                    1.NEW GAME                                       \n" +
+                "                                    2.LOAD GAME                                      \n" +
+                "                                    3.QUIT                                           \n" +
                 "------------------------------------------------------------------------------------\n";
 
         System.out.println(menu);
-    }
-
-    //TODO: Make this a parser
-    public String run(String userInput) {
-        String playerLocation = "";
-        String SceneDescription = "";
-        String message = "";
-        String[] words = userInput.toLowerCase().split(" ");
-        if (words.length > 2) {
-            System.out.println("Doggo don't understand more than 2 words :(");
-        }
-        if (words.length == 0) {
-            System.out.println("Doggo needs commands to achieve world domination...i mean to become famous!!!");
-        }
-
-        switch (words[0]) {
-            case "quit":
-                System.exit(0);
-                break;
-            case "location":
-                playerLocation = doggo.getLocation().getName();
-                SceneDescription = doggo.getLocation().getDescription();
-                message = "Location : " + playerLocation + " ( Place Description : " + SceneDescription + " ) ";
-                break;
-            case "go":
-                boolean moved = doggo.goTowards(Direction.convert(words[1]), map);
-                if (moved) {
-                    message = doggo.getLocation().getDescription();
-                } else {
-                    message = "Can't go " + words[1];
-                }
-                break;
-            case "inventory":
-                //TODO: Make the proper function
-                message = "Not developed yet";
-                break;
-            case "take":
-                message = doggo.take(words[1]);
-                break;
-            case "drop":
-                message = doggo.drop(words[1]);
-                break;
-            default:
-                message = "Woof! What does " + words[0] + " mean";
-                break;
-        }
-        return message;
     }
 }
