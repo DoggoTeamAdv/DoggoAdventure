@@ -21,6 +21,7 @@ public class Parser {
                 return game.use(words[1]);
             case "location":
                 return game.getLocationInfo();
+            case "move":
             case "go":
                 return game.movePlayer(words[1]);
             case "inventory":
