@@ -1,9 +1,5 @@
-import Item.*;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import Scene_Stuff.Direction;
+import Scene_Stuff.Map;
 
 //TODO: Make the Descriptions changable
 //TODO: Make Scenes into Scenes by declaring a tasks at a direction rather than a new "Room"

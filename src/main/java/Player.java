@@ -1,6 +1,6 @@
 import Item.*;
-
-import java.util.List;
+import Scene_Stuff.Direction;
+import Scene_Stuff.Scene;
 
 public class Player {
     private String name;

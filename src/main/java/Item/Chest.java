@@ -1,4 +1,4 @@
-import Item.Item;
+package Item;
 
 public class Chest {
     Item item;
