@@ -21,8 +21,8 @@ public class Player {
         return location;
     }
 
-    public boolean goTowards(Direction dir, List<Scene> map) {
-        String sceneToGoTo;
+    public boolean goTowards(Direction dir) {
+        Scene sceneToGoTo;
         switch (dir) {
             case north:
                 sceneToGoTo = location.getNorth();
@@ -39,16 +39,11 @@ public class Player {
             default:
                 return false;
         }
-        if (sceneToGoTo.isEmpty()) {
+        if (sceneToGoTo==null) {
             return false;
         }
-        for (Scene scene : map) {
-            if (scene.getName().equals(sceneToGoTo)) {
-                location = scene;
-                return true;
-            }
-        }
-        return false;
+        location = sceneToGoTo;
+        return true;
     }
 
     public void addItem(Item it) {

@@ -3,45 +3,41 @@ import Item.Item;
 
 public class Scene {
     private String name, description;
-    private String north,east,west,south;
+    private Scene north,east,west,south;
     private Inventory sceneItems = new Inventory();
 
-    public Scene(String sName, String sDescription, String sNorth, String sEast, String sSouth, String sWest) {
+    public Scene(String sName, String sDescription) {
         this.name = sName;
         this.description = sDescription;
-        this.north = sNorth;
-        this.south = sSouth;
-        this.east = sEast;
-        this.west = sWest;
     }
 
     //NORTH
-    public String getNorth() {
+    public Scene getNorth() {
         return north;
     }
-    public void setNorth(String north) {
+    public void setNorth(Scene north) {
         this.north = north;
     }
     //EAST
-    public String getEast() {
+    public Scene getEast() {
         return east;
     }
-    public void setEast(String east) {
+    public void setEast(Scene east) {
         this.east = east;
     }
     //SOUTH
-    public String getSouth() {
+    public Scene getSouth() {
         return south;
     }
 
-    public void setSouth(String south) {
+    public void setSouth(Scene south) {
         this.south = south;
     }
     //WEST
-    public String getWest() {
+    public Scene getWest() {
         return west;
     }
-    public void setWest(String west) {
+    public void setWest(Scene west) {
         this.west = west;
     }
 

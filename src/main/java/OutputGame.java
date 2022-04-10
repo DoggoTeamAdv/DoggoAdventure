@@ -10,36 +10,16 @@ import java.util.List;
 //TODO: help command to show at user the available commands
 //TODO: Fix go south east bug
 //TODO: Items->Class with categories etc edible, drinkable
+//TODO: Make map a class
 
 
 public class OutputGame {
     private Player doggo;
-    private List<Scene> map = new ArrayList<Scene>();
+    private Map map;
 
     public OutputGame() {
-        map.add(new Scene("Start", "It's a beautiful day to be the most famous crypto!", "Castle", "Old House", "Pigeons", "West Side"));
-        map.get(0).addItem(new Key("Chest Key", "A key that opens a chest", Arrays.asList(Category.takeable, Category.dropable, Category.usable)));
-
-        map.add(new Scene("West Side", "Welcome to the West Side,wait..is that Will Smith?", "", "Start", "China Town", ""));
-        map.get(1).addItem(new Crypto("Crypto1", "West sides crypto", Arrays.asList(Category.takeable, Category.dropable, Category.usable)));
-
-        map.add(new Scene("China Town", "Ching Chang Chong,shame the door of the diner is locked", "West Side", "", "", ""));
-        map.get(2).addItem(new Key("Store Key", "A key that opens the door", Arrays.asList(Category.takeable, Category.dropable, Category.usable)));
-        map.get(2).addItem(new Crypto("Crypto2", "China towns crypto", Arrays.asList(Category.takeable, Category.dropable, Category.usable)));
-        map.get(2).addItem(new Food("Fish", "A drowning fish", Collections.singletonList(Category.eatable)));
-
-        map.add(new Scene("Old House", "A rusty old house, my dog sense smells something in there", "", "", "", "Start"));
-        //map.get(3).addItem(new Item("Chest", "A chest with a key and a crypto inside", Arrays.asList( Category.takeable, Category.dropable, Category.usable)));
-        map.get(3).addItem(new Weapon("Axe", "An axe that breaks doors", Arrays.asList(Category.takeable, Category.dropable, Category.usable)));
-        map.get(3).addItem(new Crypto("Crypto3", "Old houses crypto", Arrays.asList(Category.takeable, Category.dropable, Category.usable)));
-
-        map.add(new Scene("Pigeons", "Cooo cooooo,those pigeons seem very anxious", "Start", "West Side", "", "Old House"));
-        map.get(4).addItem(new Crypto("Crypto4", "Pigeons crypto", Arrays.asList(Category.takeable, Category.dropable, Category.usable)));
-
-        map.add(new Scene("Castle", "That's a big castle,with a big lock on its entrance", "", "", "Start", ""));
-
-
-        doggo = new Player("Doggo", map.get(0));
+        map = new Map();
+        doggo = new Player("Doggo", map.getScene("Start"));
 
     }
 
@@ -68,7 +48,7 @@ public class OutputGame {
 
     public String movePlayer(String directionStr) {
         String message;
-        boolean moved = doggo.goTowards(Direction.convert(directionStr), map);
+        boolean moved = doggo.goTowards(Direction.convert(directionStr));
         if (moved) {
             return doggo.getLocation().getDescription();
         } else {
