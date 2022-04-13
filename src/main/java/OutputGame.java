@@ -2,11 +2,9 @@ import Scene_Stuff.Direction;
 import Scene_Stuff.Map;
 
 //TODO: Make the Descriptions changable
-//TODO: Make Scenes into Scenes by declaring a tasks at a direction rather than a new "Room"
 //TODO: help command to show at user the available commands
 //TODO: Fix go south east bug
-//TODO: Items->Class with categories etc edible, drinkable
-//TODO: Make map a class
+
 
 
 public class OutputGame {
@@ -52,9 +50,9 @@ public class OutputGame {
         }
     }
 
-    public String getInventory() {
-        // TODO: develop
-        return "Not developed yet";
+    public String getInventory(){
+        //TODO : Make it work
+        return "Under Construction";
     }
 
     public String takeItem(String itemStr) {
@@ -77,7 +75,7 @@ public class OutputGame {
     }
 
 
-    public void showMenu() {
+    /*public void showMenu() {
         String menu;
         menu = "====================================================================================\n" +
                 "▀█▀ █ █ █▀▀   █▀▄ █▀█ █▀▀ █▀▀ █▀█   ▄▀▄ █▀▄ █ █ █▀▀ █▄ █ ▀█▀ █ █ █▀█ █▀▀ \n" +
@@ -89,5 +87,5 @@ public class OutputGame {
                 "------------------------------------------------------------------------------------\n";
 
         System.out.println(menu);
-    }
+    }*/
 }
