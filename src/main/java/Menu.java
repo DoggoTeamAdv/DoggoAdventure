@@ -9,6 +9,7 @@ public class Menu {
     BufferedReader brGame = new BufferedReader(new InputStreamReader(System.in));
     OutputGame game = new OutputGame();
     Parser pars = new Parser();
+    Execute exec;
 
     String playerOption,input,output;
     boolean isMenuOptionValid = false;
@@ -62,7 +63,7 @@ public class Menu {
             System.out.print("Command : ");
             input = brGame.readLine();
             output = pars.run(input, game);
-            System.out.println(output);
+
         }while(true);
     }
 

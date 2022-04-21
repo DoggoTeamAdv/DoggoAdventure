@@ -2,9 +2,11 @@ import java.io.IOException;
 
 public class Parser {
     Menu mainMenu;
+    Execute exec;
 
     public String run(String userInput, OutputGame game) throws IOException {
         String[] words = userInput.toLowerCase().split(" ");
+        String execution;
         if (words.length > 2) {
             System.out.println("Doggo don't understand more than 2 words :(");
         }
@@ -12,7 +14,8 @@ public class Parser {
             System.out.println("Doggo needs commands to achieve world domination...i mean to become famous!!!");
         }
 
-        // TODO: make functions for checks
+        return exec.commandExecute(words,game);
+       /*
         switch (words[0]) {
             case "quit":
                 System.exit(0);
@@ -35,15 +38,12 @@ public class Parser {
                 return game.takeItem(words[1]);
             case "drop":
                 return game.dropItem(words[1]);
-            // case "menu":
-               /* mainMenu.showMenu();
-                mainMenu.menuOption();*/
             case "eat":
                 return game.eat(words[1]);
             default:
                 return "Woof! What does " + words[0] + " mean?";
         }
-        return "If you see this, run";
+        return "If you see this, run";*/
     }
 
 }
