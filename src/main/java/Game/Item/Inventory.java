@@ -1,4 +1,4 @@
-package Item;
+package Game.Item;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,16 +20,10 @@ public class Inventory {
         items.add(it);
     }
 
-    //It tries to remove the item with the given name. It returns it after removing it or returns null if not found
-    public Item removeItem(String itemName){
-        int index = indexOf(itemName);
-        if (index==-1) {
-            return null;
-        }
-        Item item = items.get(index);
-        items.remove(index);
-        return item;
+    public void remove(Item item) {
+        items.remove(item);
     }
+
     //Gets the name of an Item.Item and returns it if it belongs to the list
     public Item getItem(String itName){
         int result= indexOf(itName);

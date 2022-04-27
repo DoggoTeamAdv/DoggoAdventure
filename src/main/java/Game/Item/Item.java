@@ -1,16 +1,12 @@
-package Item;
-
-import java.util.List;
+package Game.Item;
 
 abstract public class Item {
     private String name,description;
-    List<Category> categories;
 
-    public Item(String iName,String iDesc, List<Category> iCategories)
+    public Item(String iName,String iDesc)
     {
         this.name = iName;
         this.description = iDesc;
-        this.categories = iCategories;
     }
 
     //NAME
@@ -32,18 +28,6 @@ abstract public class Item {
     {
         this.description = description;
     }
-
-    //CATEGORIES
-    public boolean isInCategory(Category category) {
-        for (Category myCategory : categories) {
-            if (myCategory==category) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-
 
 
 }

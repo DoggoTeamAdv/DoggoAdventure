@@ -1,7 +1,7 @@
-package Scene_Stuff;
+package Game.Scene_Stuff;
 
-import Item.Inventory;
-import Item.Item;
+import Game.Item.Inventory;
+import Game.Item.Item;
 
 public class Scene {
     private String name, description;
@@ -60,8 +60,8 @@ public class Scene {
     public void addItem(Item it){
         sceneItems.addItem(it);
     }
-    public Item removeItem(String itemName){
-       return sceneItems.removeItem(itemName);
+    public void remove(Item item){
+       sceneItems.remove(item);
     }
 
     public Item getItem(String itName) {

@@ -1,3 +1,7 @@
+package Game;
+
+import Game.Command.BarkCommand;
+
 import java.io.IOException;
 
 public class Parser {
@@ -16,8 +20,12 @@ public class Parser {
                 System.exit(0);
                 break;
             case "bark":
+                if (words.length!=1);
+                ;;;;;;;;;;;;;;;;;;;;;;
+                return new BarkCommand(player).execute();
                 return game.bark();
             case "fart":
+
                 return game.fart();
             case "use":
                 return game.use(words[1]);
@@ -32,6 +40,13 @@ public class Parser {
             case "take":
                 return game.takeItem(words[1]);
             case "drop":
+                if (words.length!=1);
+                ;;;;;;;;;;;;;;;;;
+                Item item = game.getPlayer().getItem(word[1]);
+                if (item==null) return "den vrethike";
+                if (!item.isInCategory(Category.droppable))   return item.getName() + " is not droppable!";
+                return new DropCommand(game, item).execute();
+                ;;;;;;;;;;;;;;;;;
                 return game.dropItem(words[1]);
             case "eat":
                 return game.eat(words[1]);

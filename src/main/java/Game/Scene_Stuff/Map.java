@@ -1,6 +1,8 @@
-package Scene_Stuff;
+package Game.Scene_Stuff;
 
-import Item.*;
+import Game.Item.*;
+import Game.Item.Food.Edible;
+
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,28 +17,28 @@ public class Map {
         Scene scene;
 
         scene = new Scene("Start", "It's a beautiful day to be the most famous crypto!");
-        scene.addItem(new Key("Chest Key", "A key that opens a chest", Arrays.asList(Category.takeable, Category.dropable, Category.usable)));
+        scene.addItem(new Key("Chest Key", "A key that opens a chest"));
         addScene(scene);
 
         scene = new Scene("West Side", "Welcome to the West Side,wait..is that Will Smith?");
-        scene.addItem(new Crypto("Crypto1", "West sides crypto", Arrays.asList(Category.takeable, Category.dropable, Category.usable)));
+        scene.addItem(new Crypto("Crypto1", "West sides crypto"));
         addScene(scene);
 
 
         scene = new Scene("China Town", "Ching Chang Chong,shame the door of the diner is locked");
-        scene.addItem(new Key("Store Key", "A key that opens the door", Arrays.asList(Category.takeable, Category.dropable, Category.usable)));
-        scene.addItem(new Crypto("Crypto2", "China towns crypto", Arrays.asList(Category.takeable, Category.dropable, Category.usable)));
-        scene.addItem(new Food("Fish", "A drowning fish", Collections.singletonList(Category.eatable)));
+        scene.addItem(new Key("Store Key", "A key that opens the door"));
+        scene.addItem(new Crypto("Crypto2", "China towns crypto"));
+        scene.addItem(new Edible("Fish", "A drowning fish"));
         addScene(scene);
 
         scene = new Scene("Old House", "A rusty old house, my dog sense smells something in there");
-        //scene.addItem(new Item("Chest", "A chest with a key and a crypto inside", Arrays.asList( Category.takeable, Category.dropable, Category.usable)));
-        scene.addItem(new Weapon("Axe", "An axe that breaks doors", Arrays.asList(Category.takeable, Category.dropable, Category.usable)));
-        scene.addItem(new Crypto("Crypto3", "Old houses crypto", Arrays.asList(Category.takeable, Category.dropable, Category.usable)));
+        //scene.addItem(new Item("Chest", "A chest with a key and a crypto inside"));
+        scene.addItem(new Weapon("Axe", "An axe that breaks doors"));
+        scene.addItem(new Crypto("Crypto3", "Old houses crypto"));
         addScene(scene);
 
         scene = new Scene("Pigeons", "Cooo cooooo,those pigeons seem very anxious");
-        scene.addItem(new Crypto("Crypto4", "Pigeons crypto", Arrays.asList(Category.takeable, Category.dropable, Category.usable)));
+        scene.addItem(new Crypto("Crypto4", "Pigeons crypto"));
         addScene(scene);
 
         scene = new Scene("Castle", "That's a big castle,with a big lock on its entrance");

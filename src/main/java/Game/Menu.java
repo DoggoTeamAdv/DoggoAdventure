@@ -1,3 +1,5 @@
+package Game;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -63,7 +65,7 @@ public class Menu {
             input = brGame.readLine();
             output = pars.run(input, game);
             System.out.println(output);
-        }while(true);
+        }while(!game.isFinished());
     }
 
     public void loadGame() {

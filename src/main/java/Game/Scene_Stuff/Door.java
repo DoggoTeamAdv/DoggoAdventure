@@ -1,6 +1,6 @@
-package Scene_Stuff;
+package Game.Scene_Stuff;
 
-import Item.Item;
+import Game.Item.Item;
 
 public class Door {
     Item item;
