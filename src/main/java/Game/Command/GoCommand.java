@@ -17,22 +17,7 @@ public class GoCommand implements Command{
     public String goTowards(Direction dir) {
         Scene currentLocation, sceneToGoTo;
         currentLocation = player.getLocation();
-        switch (dir) {
-            case north:
-                sceneToGoTo = currentLocation.getNorth();
-                break;
-            case east:
-                sceneToGoTo = currentLocation.getEast();
-                break;
-            case west:
-                sceneToGoTo = currentLocation.getWest();
-                break;
-            case south:
-                sceneToGoTo = currentLocation.getSouth();
-                break;
-            default:
-                return "Can't go there";
-        }
+        sceneToGoTo = currentLocation.getSceneInDirection(dir);
         player.setLocation(sceneToGoTo);
         return sceneToGoTo.getDescription();
     }

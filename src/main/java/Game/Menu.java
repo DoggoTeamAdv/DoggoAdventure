@@ -1,5 +1,7 @@
 package Game;
 
+import Game.Character.Player;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -10,7 +12,7 @@ public class Menu {
     BufferedReader brOption = new BufferedReader(new InputStreamReader(System.in));
     BufferedReader brGame = new BufferedReader(new InputStreamReader(System.in));
     OutputGame game = new OutputGame();
-    Parser pars = new Parser();
+    Parser pars = new Parser(game);
 
     String playerOption,input,output;
     boolean isMenuOptionValid = false;

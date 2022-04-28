@@ -56,4 +56,8 @@ public class OutputGame {
         System.out.println(intro);
     }
 
+    public Player getPlayer() {
+        return doggo;
+    }
+
 }

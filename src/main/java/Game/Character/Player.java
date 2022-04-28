@@ -31,13 +31,8 @@ public class Player {
         inventory.remove(item);
     }
 
-    private Item findItem(String itName) {
-        Item item = inventory.getItem(itName);
-        if (item != null) {
-            return item;
-        }
-        item = location.getItem(itName);
-        return item;
+    public Item getItem(String itName) {
+        return inventory.getItem(itName);
     }
 
     public boolean isFartDeadly() {

@@ -43,6 +43,21 @@ public class Scene {
         this.west = west;
     }
 
+    public Scene getSceneInDirection(Direction direction) {
+        switch (direction) {
+            case north:
+                return north;
+            case east:
+                return east;
+            case south:
+                return south;
+            case west:
+                return west;
+            default:
+                return null;
+        }
+    }
+
     public String getDescription() {
         return description;
     }
