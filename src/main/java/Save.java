@@ -1,11 +1,39 @@
+import java.io.*;
 import java.util.Scanner;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.File;
-import java.io.PrintWriter;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 
 public class Save {
-    public static final Scanner scanner = new Scanner(System.in);
+    File textfile = new File("src/main/java/userData.txt");
+
+
+    public void isFileValid(File textfile) throws IOException {
+        if(textfile.createNewFile())
+            System.out.println("File Created : " + textfile.getName());
+        else
+            System.out.println("File Already Exists");
+    }
+
+
+    public void saveFile(OutputGame game) throws IOException {
+
+            FileWriter userData = new FileWriter(textfile);
+            isFileValid(textfile);
+
+            userData.write("1ST LINE \n");
+            userData.write("2ND LINE \n");
+            userData.write("3RD LINE \n");
+            userData.flush();
+            userData.close();
+            System.out.println("Successfully Saved");
+    }
+
+    public void loadFile() throws IOException {
+        FileReader fr = new FileReader(textfile);
+        BufferedReader br = new BufferedReader(fr);
+        String line;
+        while ((line = br.readLine()) != null){
+            System.out.println(line);
+        }
+
+
+    }
 }

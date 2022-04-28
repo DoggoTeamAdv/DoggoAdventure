@@ -4,8 +4,9 @@ public class Parser {
     Menu mainMenu;
     Execute exec;
 
-    public String run(String userInput, OutputGame game) throws IOException {
+    public String run(String userInput, OutputGame game,Save saveGame) throws IOException {
         String[] words = userInput.toLowerCase().split(" ");
+        exec = new Execute();
         String execution;
         if (words.length > 2) {
             System.out.println("Doggo don't understand more than 2 words :(");
@@ -14,7 +15,7 @@ public class Parser {
             System.out.println("Doggo needs commands to achieve world domination...i mean to become famous!!!");
         }
 
-        return exec.commandExecute(words,game);
+        return exec.commandExecute(words,game,saveGame);
        /*
         switch (words[0]) {
             case "quit":

@@ -9,7 +9,7 @@ public class Menu {
     BufferedReader brGame = new BufferedReader(new InputStreamReader(System.in));
     OutputGame game = new OutputGame();
     Parser pars = new Parser();
-    Execute exec;
+    Save saveGame = new Save();
 
     String playerOption,input,output;
     boolean isMenuOptionValid = false;
@@ -62,14 +62,14 @@ public class Menu {
         do {
             System.out.print("Command : ");
             input = brGame.readLine();
-            output = pars.run(input, game);
-
+            output = pars.run(input, game, saveGame);
+            System.out.println(output);
         }while(true);
     }
 
-    public void loadGame() {
+    public void loadGame() throws IOException {
         //TODO: FUNCTIONAL LOAD GAME
-        System.out.println("UNDER CONSTRUCTION");
+        saveGame.loadFile();
     }
 
     public void quitGame(){

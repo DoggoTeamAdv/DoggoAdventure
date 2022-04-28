@@ -1,6 +1,7 @@
-public class Execute {
+import java.io.IOException;
 
-    public String commandExecute(String[] words, OutputGame game){
+public class Execute {
+    public String commandExecute(String[] words, OutputGame game,Save saveGame) throws IOException {
         switch (words[0]) {
             case "quit":
                 System.exit(0);
@@ -16,6 +17,9 @@ public class Execute {
             case "move":
             case "go":
                 return game.movePlayer(words[1]);
+            case "save":
+                saveGame.saveFile(game);
+                return "";
             case "inventory":
                 return game.getInventory();
             case "grab":
