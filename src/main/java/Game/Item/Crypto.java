@@ -2,7 +2,7 @@ package Game.Item;
 
 import Game.Character.Player;
 
-public class Crypto extends UsableItem  {
+public class Crypto extends DataItem implements Takeable,Usable  {
     public Crypto(String iName, String iDesc) {
         super(iName, iDesc);
     }

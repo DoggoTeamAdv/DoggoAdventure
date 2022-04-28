@@ -2,12 +2,13 @@ package Game.Command;
 
 import Game.Character.Player;
 import Game.Item.Item;
+import Game.Item.Takeable;
 
 public class TakeCommand implements Command{
     private Player player;
-    private Item item;
+    private Takeable item;
 
-    public TakeCommand(Player player, Item item){
+    public TakeCommand(Player player, Takeable item){
         this.player = player;
         this.item =item;
     }

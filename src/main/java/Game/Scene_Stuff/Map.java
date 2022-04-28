@@ -28,7 +28,7 @@ public class Map {
         scene = new Scene("China Town", "Ching Chang Chong,shame the door of the diner is locked");
         scene.addItem(new Key("Store Key", "A key that opens the door"));
         scene.addItem(new Crypto("Crypto2", "China towns crypto"));
-        scene.addItem(new Edible("Fish", "A drowning fish"));
+        scene.addItem((Item) new Edible("Fish", "A drowning fish"));
         addScene(scene);
 
         scene = new Scene("Old House", "A rusty old house, my dog sense smells something in there");

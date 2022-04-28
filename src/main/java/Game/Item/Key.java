@@ -2,7 +2,7 @@ package Game.Item;
 
 import Game.Character.Player;
 
-public class Key extends UsableItem{
+public class Key extends DataItem implements Takeable,Usable,Droppable{
 
     public Key(String iName, String iDesc) {
         super(iName, iDesc);

@@ -2,13 +2,13 @@ package Game.Command;
 
 import Game.Character.Player;
 import Game.Item.Item;
-import Game.Item.UsableItem;
+import Game.Item.Usable;
 
 public class UseCommand implements Command{
     private Player player;
-    private UsableItem item;
+    private Usable item;
 
-    public UseCommand(Player player, UsableItem item){
+    public UseCommand(Player player, Usable item){
         this.player = player;
         this.item =item;
     }
