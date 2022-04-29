@@ -66,7 +66,6 @@ public class OutputGame {
     }
 
     public String movePlayer(String directionStr) {
-        String message;
         boolean moved = doggo.goTowards(Direction.convert(directionStr), map);
         if (moved) {
             return doggo.getLocation().getDescription();

@@ -10,6 +10,7 @@ public class Menu {
     OutputGame game = new OutputGame();
     Parser pars = new Parser();
     Save saveGame = new Save();
+    Load loadGame = new Load();
 
     String playerOption,input,output;
     boolean isMenuOptionValid = false;
@@ -68,8 +69,7 @@ public class Menu {
     }
 
     public void loadGame() throws IOException {
-        //TODO: FUNCTIONAL LOAD GAME
-        saveGame.loadFile();
+        loadGame.loadFile();
     }
 
     public void quitGame(){
