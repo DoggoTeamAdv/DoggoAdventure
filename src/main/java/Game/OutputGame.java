@@ -38,7 +38,7 @@ public class OutputGame {
             switch (doggo.getLocation().getName()) {
                 case "Castle":
                     return "Elon Musk: Your fart is smelly but not deadly...at least not yet.";
-                case "Chinatown":
+                case "China Town":
                     return "A chinese man next to you puts on another mask on top of the one he had";
                 default:
                     return "The fly puked by the smell and judged you as it was leaving..you feel embarrassed.";
