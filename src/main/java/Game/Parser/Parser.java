@@ -10,7 +10,7 @@ public class Parser {
         List<String> words = Arrays.asList(input.split(" "));
         List<String> parts = new ArrayList<String>();
 
-        if (words.size() >= 1) {
+        if (!words.isEmpty()) {
             parts.add(words.get(0));
         }
         if (words.size() >= 2) {
@@ -27,7 +27,7 @@ public class Parser {
         return parts;
     }
 
-    public List<String> parse(String userInput) throws Exception {
+    public Sentence parse(String userInput) throws Exception {
         List<String> inputParts = splitInput(userInput);
         if (inputParts.size() == 0) {
             throw new Exception("Doggo needs commands to achieve world domination...i mean to become famous!!!");
@@ -42,15 +42,16 @@ public class Parser {
         if (inputParts.size()== 2) {
             noun = Noun.convert(inputParts.get(1));
             if (noun == null) {
-                throw new Exception("Woof! What is a " +inputParts.get(1) + "?");
+                throw new Exception("Woof! What is " +inputParts.get(1) + "?");
             }
         }
+        Sentence sentence = new Sentence(verb, noun);
 
         if ((verb.needsNoun) && (noun == null)) {
             throw new Exception("This command is not a lone wolf. " + inputParts.get(0) + " ....?");
         } else if ((!verb.needsNoun) && (noun != null)) {
             throw new Exception("This command is a lone wolf..");
         }
-        return inputParts;
+        return sentence;
     }
 }

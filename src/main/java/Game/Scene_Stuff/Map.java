@@ -16,28 +16,28 @@ public class Map {
         Scene scene;
 
         scene = new Scene("Start", "It's a beautiful day to be the most famous crypto!");
-        scene.addItem(new Key("Chest Key", "A key that opens a chest"));
+        scene.addItem(new Key("Rusty Key", "A key that opens a chest"));
         addScene(scene);
 
         scene = new Scene("West Side", "Welcome to the West Side,wait..is that Will Smith?");
-        scene.addItem(new Crypto("Crypto1", "West sides crypto"));
+        scene.addItem(new Crypto("Bitcoin", "West sides crypto"));
         addScene(scene);
 
 
         scene = new Scene("China Town", "Ching Chang Chong,shame the door of the diner is locked");
-        scene.addItem(new Key("Store Key", "A key that opens the door"));
-        scene.addItem(new Crypto("Crypto2", "China towns crypto"));
+        scene.addItem(new Key("Ching Chong Key", "A key that opens the door"));
+        scene.addItem(new Crypto("Etherium", "China towns crypto"));
         scene.addItem(new Fish("Fish", "A drowning fish"));
         addScene(scene);
 
         scene = new Scene("Old House", "A rusty old house, my dog sense smells something in there");
         //scene.addItem(new Item("Chest", "A chest with a key and a crypto inside"));
         scene.addItem(new Weapon("Axe", "An axe that breaks doors"));
-        scene.addItem(new Crypto("Crypto3", "Old houses crypto"));
+        scene.addItem(new Crypto("Luna", "Old houses crypto"));
         addScene(scene);
 
         scene = new Scene("Pigeons", "Cooo cooooo,those pigeons seem very anxious");
-        scene.addItem(new Crypto("Crypto4", "Pigeons crypto"));
+        scene.addItem(new Crypto("Solana", "Pigeons crypto"));
         addScene(scene);
 
         scene = new Scene("Castle", "That's a big castle,with a big lock on its entrance");

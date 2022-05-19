@@ -34,12 +34,14 @@ public enum Verb {
     public static Verb convert(String str) {
         String formattedStr = str.toLowerCase();
         for (Verb verb : Verb.values()) {
-            for (String synonym : verb.synonyms) {
-                if (formattedStr.equals(synonym)) {
-                    return verb;
-                }
+            if (verb.synonyms.contains(formattedStr)) {
+                return verb;
             }
         }
         return null;
+    }
+
+    public String getStr() {
+        return synonyms.get(0);
     }
 }

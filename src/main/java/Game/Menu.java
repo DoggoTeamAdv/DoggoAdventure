@@ -2,6 +2,7 @@ package Game;
 
 import Game.Command.Command;
 import Game.Parser.Parser;
+import Game.Parser.Sentence;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -70,8 +71,8 @@ public class Menu {
             input = brGame.readLine();
             Command command;
             try {
-                List<String> inputParts = pars.parse(input);
-                command = commandFactory.getInstance(inputParts);
+                Sentence sentence = pars.parse(input);
+                command = commandFactory.getInstance(sentence);
                 output = command.execute();
                 System.out.println(output);
             } catch (Exception e) {

@@ -4,6 +4,8 @@ import Game.Character.Player;
 import Game.Command.*;
 import Game.Item.*;
 import Game.Item.Food.Edible;
+import Game.Parser.Sentence;
+import Game.Parser.Verb;
 import Game.Scene_Stuff.Direction;
 import Game.Scene_Stuff.Scene;
 
@@ -18,17 +20,17 @@ public class CommandFactory {
         this.player = game.getPlayer();
     }
 
-    public Command getInstance(List<String> parts) throws Exception {
+    public Command getInstance(Sentence sentence) throws Exception {
         Item item;
-        switch (parts.get(0)) {
-            case "quit":
+        switch (sentence.verb) {
+            case QUIT:
                return new QuitCommand();
-            case "bark":
+            case BARK:
                 return new BarkCommand(player);
-            case "fart":
+            case FART:
                 return new FartCommand(game);
-            case "use":
-                item = player.getItem(parts.get(1));
+            case USE:
+                item = player.getItem(sentence.noun.getStr());
                 if (item==null) {
                     throw new Exception("There's no such item on you");
                 }
@@ -36,24 +38,22 @@ public class CommandFactory {
                     throw new Exception(item.getName() + " is not usable");
                 }
                 return new UseCommand(player, (Usable) item);
-            case "location":
+            case LOCATION:
                 return new LocationCommand(player);
-            case "move":
-            case "go":
-                Direction direction = Direction.convert(parts.get(1));
+            case MOVE:
+                Direction direction = Direction.convert(sentence.noun.getStr());
                 if (direction == Direction.noPoint) {
-                    throw new Exception("Can't go " + parts.get(1));
+                    throw new Exception("Can't go " + sentence.noun.getStr());
                 }
                 Scene destination = player.getLocation().getSceneInDirection(direction);
                 if (destination==null) {
                     throw new Exception("There's no point going there");
                 }
                 return new GoCommand(player,direction);
-            case "inventory":
+            case INVENTORY:
                 return new InventoryCommand(player);
-            case "grab":
-            case "take":
-                item = player.getLocation().getItem(parts.get(1));
+            case TAKE:
+                item = player.getLocation().getItem(sentence.noun.getStr());
                 if (item==null) {
                     throw new Exception("There's no such item around you");
                 }
@@ -61,8 +61,8 @@ public class CommandFactory {
                     throw new Exception("You can't take the " + item.getName());
                 }
                 return new TakeCommand(player, (Takeable) item);
-            case "drop":
-                item = player.getItem(parts.get(1));
+            case DROP:
+                item = player.getItem(sentence.noun.getStr());
                 if (item==null) {
                     throw new Exception("There's no such item on you");
                 }
@@ -70,20 +70,20 @@ public class CommandFactory {
                     throw new Exception("You can't drop that!");
                 }
                 return new DropCommand(player, (Droppable) item);
-            case "eat":
-                item = player.getItem(parts.get(1));
+            case EAT:
+                item = player.getItem(sentence.noun.getStr());
                 if (item==null) {
-                    item = player.getLocation().getItem(parts.get(1));
+                    item = player.getLocation().getItem(sentence.noun.getStr());
                 }
                 if (item==null) {
-                    throw new Exception("You sniff everywhere but can't find any " + parts.get(1));
+                    throw new Exception("You sniff everywhere but can't find any " + sentence.noun.getStr());
                 }
                 if (!(item instanceof Edible)) {
                     throw new Exception("You can't eat " + item.getName() + ".. You're smarter than that!");
                 }
                 return new EatCommand(player, (Edible)item);
             default:
-                throw new Exception("Woof! What does " + parts.get(0) + " mean?");
+                throw new Exception("Woof! What does " + sentence.verb.getStr() + " mean?");
         }
     }
 }

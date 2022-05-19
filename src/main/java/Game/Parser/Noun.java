@@ -1,5 +1,6 @@
 package Game.Parser;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -10,7 +11,6 @@ public enum Noun {
     ETHERIUM("etherium"),
     SOLANA("solana"),
     LUNA("luna"),
-    CARDANO("cardano"),
     FISH("fish"),
     AXE("axe"),
     WEST("west"),
@@ -30,13 +30,16 @@ public enum Noun {
 
     public static Noun convert(String str) {
         String formattedStr = str.toLowerCase();
+
         for (Noun noun : Noun.values()) {
-            for (String synonym : noun.synonyms) {
-                if (formattedStr.equals(synonym)) {
-                    return noun;
-                }
+            if (noun.synonyms.contains(formattedStr)) {
+                return noun;
             }
         }
         return null;
+    }
+
+    public String getStr() {
+        return synonyms.get(0);
     }
 }
