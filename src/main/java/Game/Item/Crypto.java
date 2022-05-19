@@ -7,6 +7,7 @@ public class Crypto extends DataItem implements Takeable,Usable  {
         super(iName, iDesc);
     }
     public String use(Player player){
+        //TODO:Develop use of Crypto
         return "To be developed";
     }
 }

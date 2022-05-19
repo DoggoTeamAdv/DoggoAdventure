@@ -6,6 +6,7 @@ public class Weapon extends DataItem implements Usable,Droppable,Takeable {
         super(iName, iDesc);
     }
     public String use(Player player){
+        //TODO:Develop use of Weapon
         return "To be developed";
     }
 

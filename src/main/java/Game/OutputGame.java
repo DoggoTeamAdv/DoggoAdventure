@@ -2,13 +2,11 @@ package Game;
 
 import Game.Character.Player;
 import Game.Scene_Stuff.Map;
+import Game.Scene_Stuff.Scene;
 
 
 //TODO: Make the Descriptions changable
 //TODO: help command to show at user the available commands
-//TODO: Fix go south east bug
-
-
 
 public class OutputGame {
     private Player doggo;
@@ -26,8 +24,9 @@ public class OutputGame {
     }
 
     public String fart() {
+        Scene playerLocation = doggo.getLocation();
         if (doggo.isFartDeadly()) {
-            switch (doggo.getLocation().getName()) {
+            switch (playerLocation.getName()) {
                 case "Castle":
                     finished = true;
                     return "YES. Elon Musk is dead. YOU are the toppest crypto of them all. Good job buddy";
@@ -35,7 +34,7 @@ public class OutputGame {
                     return "The plants next to you died from the smell...this seems useful";
             }
         } else {
-            switch (doggo.getLocation().getName()) {
+            switch (playerLocation.getName()) {
                 case "Castle":
                     return "Elon Musk: Your fart is smelly but not deadly...at least not yet.";
                 case "China Town":

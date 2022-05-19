@@ -1,7 +1,7 @@
 package Game.Command;
 import Game.Character.Player;
 import Game.Item.Droppable;
-import Game.Item.Item;
+import Game.Scene_Stuff.Scene;
 
 public class DropCommand implements Command{
     private Player player;
@@ -13,8 +13,9 @@ public class DropCommand implements Command{
     }
 
     public String drop(){
+        Scene playerLocation = player.getLocation();
         player.removeItem(item);
-        player.getLocation().addItem(item);
+        playerLocation.addItem(item);
         return "Item " + item.getName() + " dropped";
     }
 

@@ -1,7 +1,6 @@
 package Game.Command;
 
 import Game.Character.Player;
-import Game.Item.Item;
 import Game.Item.Usable;
 
 public class UseCommand implements Command{

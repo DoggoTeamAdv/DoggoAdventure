@@ -1,6 +1,7 @@
 package Game.Command;
 
 import Game.Character.Player;
+import Game.Scene_Stuff.Scene;
 
 public class LocationCommand implements Command{
     private Player player;
@@ -10,9 +11,8 @@ public class LocationCommand implements Command{
     }
 
     public String location(){
-        String playerLocation, sceneDescription;
-        playerLocation = player.getLocation().getName();
-        sceneDescription = player.getLocation().getDescription();
+        Scene playerLocation = player.getLocation();
+        String sceneDescription = playerLocation.getDescription();
         return "Location : " + playerLocation + " ( Place Description : " + sceneDescription + " ) ";
     }
 

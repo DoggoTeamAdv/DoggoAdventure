@@ -1,5 +1,6 @@
 package Game.Command;
 import Game.Character.Player;
+import Game.Scene_Stuff.Scene;
 
 public class BarkCommand implements Command {
     private Player player;
@@ -9,7 +10,8 @@ public class BarkCommand implements Command {
     }
 
     private String bark(){
-        switch (player.getLocation().getName()) {
+        Scene playerLocation = player.getLocation();
+        switch (playerLocation.getName()) {
             case "Pigeons":
                 return "Wow! you scared the pigeons away but look.. Something shiny is there.... A crypto! Quick! Take it before they come back";
             case "Castle":

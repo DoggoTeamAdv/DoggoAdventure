@@ -10,6 +10,7 @@ public class InventoryCommand implements Command {
     }
 
     public String inventory(){
+        // TODO: make inventory command
         return "Under Construction";
     }
 

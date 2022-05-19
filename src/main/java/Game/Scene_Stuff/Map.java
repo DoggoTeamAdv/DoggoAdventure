@@ -1,7 +1,6 @@
 package Game.Scene_Stuff;
 
 import Game.Item.*;
-import Game.Item.Food.Edible;
 import Game.Item.Food.Fish;
 
 

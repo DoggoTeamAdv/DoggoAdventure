@@ -1,8 +1,8 @@
 package Game.Command;
 
 import Game.Character.Player;
-import Game.Item.Item;
 import Game.Item.Takeable;
+import Game.Scene_Stuff.Scene;
 
 public class TakeCommand implements Command{
     private Player player;
@@ -14,8 +14,9 @@ public class TakeCommand implements Command{
     }
 
     public String take(){
+        Scene playerLocation = player.getLocation();
         player.addItem(item);
-        player.getLocation().remove(item);
+        playerLocation.remove(item);
         return "Item " + item.getName() + " taken";
     }
 
