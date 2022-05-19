@@ -5,8 +5,7 @@ import Game.Scene_Stuff.Map;
 import Game.Scene_Stuff.Scene;
 
 
-//TODO: Make the Descriptions changable
-//TODO: help command to show at user the available commands
+//TODO: Make the Descriptions changable\
 
 public class OutputGame {
     private Player doggo;

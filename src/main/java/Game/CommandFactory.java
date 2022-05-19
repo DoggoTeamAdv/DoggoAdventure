@@ -23,6 +23,8 @@ public class CommandFactory {
         switch (sentence.verb) {
             case QUIT:
                 return new QuitCommand();
+            case HELP:
+                return new HelpCommand();
             case BARK:
                 return new BarkCommand(player);
             case FART:

@@ -24,4 +24,12 @@ public class Inventory {
         }
         return null;
     }
+
+    public List<String> getItemNames(){
+        List<String> itemNames =new ArrayList<>();
+        for(Item item : items){
+            itemNames.add(item.getName());
+        }
+        return itemNames;
+    }
 }

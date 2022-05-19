@@ -3,6 +3,8 @@ package Game.Character;
 import Game.Item.*;
 import Game.Scene_Stuff.Scene;
 
+import java.util.List;
+
 public class Player {
     private String name;
     private Scene location;
@@ -42,5 +44,9 @@ public class Player {
     public String unlockDeadlyFart(){
         fartIsDeadly = true;
         return "You feel a pressure in your butt and feel your tummy ruble with power";
+    }
+
+    public List<String> getItemNames(){
+        return inventory.getItemNames();
     }
 }

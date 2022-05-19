@@ -2,6 +2,8 @@ package Game.Command;
 
 import Game.Character.Player;
 
+import java.util.List;
+
 public class InventoryCommand implements Command {
     private Player player;
 
@@ -10,8 +12,16 @@ public class InventoryCommand implements Command {
     }
 
     public String inventory(){
-        // TODO: make inventory command
-        return "Under Construction";
+        StringBuilder messageBuilder = new StringBuilder("Your items are...\n");
+        List<String> inventoryList = player.getItemNames();
+        if(inventoryList.isEmpty()) {
+            return "You have no items..";
+        }
+        for(String item : inventoryList){
+            messageBuilder.append(item);
+            messageBuilder.append('\n');
+        }
+        return messageBuilder.toString().trim();
     }
 
     public String execute() {
