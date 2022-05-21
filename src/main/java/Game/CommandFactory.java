@@ -25,6 +25,10 @@ public class CommandFactory {
                 return new QuitCommand();
             case HELP:
                 return new HelpCommand();
+            case SAVE:
+                return new SaveCommand(player);
+            case LOAD:
+                return new LoadCommand(player);
             case BARK:
                 return new BarkCommand(player);
             case FART:

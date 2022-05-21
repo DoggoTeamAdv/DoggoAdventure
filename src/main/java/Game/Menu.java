@@ -46,15 +46,12 @@ public class Menu {
             {
                 case "1":
                     newGame(playerOption);
-                    isMenuOptionValid = true;
                     break;
                 case "2":
                     loadGame();
-                    isMenuOptionValid = false;
                     break;
                 case "3":
                     quitGame();
-                    isMenuOptionValid = true;
                     break;
                 default:
                     System.out.println("" + playerOption + " Is Not A Valid Option! \n");
@@ -80,9 +77,7 @@ public class Menu {
         }while(!game.isFinished());
     }
 
-    public void loadGame() {
-        //TODO: FUNCTIONAL LOAD GAME
-        System.out.println("UNDER CONSTRUCTION");
+    public void loadGame() throws IOException {
     }
 
     public void quitGame(){
