@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="DoggoAdventure:jar">
+    <output-path>$USER_HOME$/Desktop</output-path>
+    <root id="archive" name="DoggoAdventure.jar">
+      <element id="module-output" name="DoggoAdventure" />
+    </root>
+  </artifact>
+</component>

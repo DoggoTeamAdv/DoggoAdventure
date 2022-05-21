@@ -1,48 +1,61 @@
-import Item.Inventory;
-import Item.Item;
+package Game.Scene_Stuff;
+
+import Game.Item.Inventory;
+import Game.Item.Item;
 
 public class Scene {
     private String name, description;
-    private String north,east,west,south;
+    private Scene north,east,west,south;
     private Inventory sceneItems = new Inventory();
 
-    public Scene(String sName, String sDescription, String sNorth, String sEast, String sSouth, String sWest) {
+    public Scene(String sName, String sDescription) {
         this.name = sName;
         this.description = sDescription;
-        this.north = sNorth;
-        this.south = sSouth;
-        this.east = sEast;
-        this.west = sWest;
     }
 
     //NORTH
-    public String getNorth() {
+    public Scene getNorth() {
         return north;
     }
-    public void setNorth(String north) {
+    public void setNorth(Scene north) {
         this.north = north;
     }
     //EAST
-    public String getEast() {
+    public Scene getEast() {
         return east;
     }
-    public void setEast(String east) {
+    public void setEast(Scene east) {
         this.east = east;
     }
     //SOUTH
-    public String getSouth() {
+    public Scene getSouth() {
         return south;
     }
 
-    public void setSouth(String south) {
+    public void setSouth(Scene south) {
         this.south = south;
     }
     //WEST
-    public String getWest() {
+    public Scene getWest() {
         return west;
     }
-    public void setWest(String west) {
+    public void setWest(Scene west) {
         this.west = west;
+    }
+
+    public Scene getSceneInDirection(Direction direction) {
+        switch (direction) {
+            case north:
+                return north;
+            case east:
+                return east;
+            case south:
+                return south;
+            case west:
+                return west;
+            default:
+                return null;
+        }
     }
 
     public String getDescription() {
@@ -62,8 +75,8 @@ public class Scene {
     public void addItem(Item it){
         sceneItems.addItem(it);
     }
-    public Item removeItem(String itemName){
-       return sceneItems.removeItem(itemName);
+    public void remove(Item item){
+       sceneItems.remove(item);
     }
 
     public Item getItem(String itName) {

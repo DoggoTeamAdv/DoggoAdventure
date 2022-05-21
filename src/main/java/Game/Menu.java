@@ -1,14 +1,21 @@
+package Game;
+
+import Game.Command.Command;
+import Game.Parser.Parser;
+import Game.Parser.Sentence;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 //TODO: CHANGE "isMenuOptionValid = true" WHEN LOAD GAME IS COMPLETED
-//TODO:
+
 public class Menu {
     BufferedReader brOption = new BufferedReader(new InputStreamReader(System.in));
     BufferedReader brGame = new BufferedReader(new InputStreamReader(System.in));
     OutputGame game = new OutputGame();
     Parser pars = new Parser();
+    CommandFactory commandFactory= new CommandFactory(game);
 
     String playerOption,input,output;
     boolean isMenuOptionValid = false;
@@ -61,9 +68,16 @@ public class Menu {
         do {
             System.out.print("Command : ");
             input = brGame.readLine();
-            output = pars.run(input, game);
-            System.out.println(output);
-        }while(true);
+            Command command;
+            try {
+                Sentence sentence = pars.parse(input);
+                command = commandFactory.getInstance(sentence);
+                output = command.execute();
+                System.out.println(output);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }while(!game.isFinished());
     }
 
     public void loadGame() {
