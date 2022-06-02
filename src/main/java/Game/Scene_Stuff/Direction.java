@@ -1,3 +1,5 @@
+package Game.Scene_Stuff;
+
 public enum Direction {
     north,
     south,
