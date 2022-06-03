@@ -9,8 +9,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-//TODO: CHANGE "isMenuOptionValid = true" WHEN LOAD GAME IS COMPLETED
-
 public class Menu {
     BufferedReader brOption = new BufferedReader(new InputStreamReader(System.in));
     BufferedReader brGame = new BufferedReader(new InputStreamReader(System.in));
