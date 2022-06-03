@@ -88,12 +88,12 @@ public class Menu {
                 Sentence sentence = pars.parse(loadCommand.getLoad().get(i));
                 command = commandFactory.getInstance(sentence);
                 command.execute();
-                System.out.println("Load Successfully");
+
             }
             catch (Exception e){
                 System.out.println(e.getMessage());
             }
-                }
+        }
 
         do {
             System.out.print("Command : ");

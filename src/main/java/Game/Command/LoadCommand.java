@@ -24,21 +24,11 @@ public class LoadCommand implements Command{
         if (!this.textFile.exists())
             return "Save file not found, please save your game first";
         else {
+            System.out.println("Load Successfully");
             List<String> allLines = Files.readAllLines(Paths.get(this.filePathStr));
             for (int i = 0; i < allLines.size(); i++) {
                 this.loadData.add(allLines.get(i));
             }
-
-//            System.out.println(this.loadData);
-//            OutputGame game = new OutputGame();
-//            CommandFactory commandFactory = new CommandFactory(game);
-//            for (int i = 0; i<this.loadData.size(); i++){
-//                Parser parser = new Parser();
-//                    Sentence sentence = parser.parse(this.loadData.get(i));
-//                    Command command = commandFactory.getInstance(sentence);
-//                    command.execute();
-//                }
-//            }
             return null;
         }
     }
