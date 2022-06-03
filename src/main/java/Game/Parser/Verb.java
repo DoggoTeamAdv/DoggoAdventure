@@ -6,6 +6,8 @@ import java.util.List;
 
 public enum Verb {
     HELP("help", false),
+    SAVE("save",false),
+    LOAD("load",false),
     QUIT("quit", false),
     BARK("bark", false),
     FART("fart", false),
