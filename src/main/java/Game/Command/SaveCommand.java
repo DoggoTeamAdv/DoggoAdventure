@@ -1,40 +1,34 @@
 package Game.Command;
 
-import Game.Character.Player;
-import Game.Item.Inventory;
-import Game.Scene_Stuff.Scene;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.List;
+import java.util.LinkedList;
 
 public class SaveCommand implements Command {
     File textfile = new File("src/main/java/userData.txt");
-    private final Player player;
+    LinkedList<String> saveData = new LinkedList<String>();
 
-    public SaveCommand(Player player) {
-        this.player = player;
+
+    public SaveCommand(LinkedList<String> list) {
+        this.saveData = list;
+
     }
 
-    public String save(String fileName) throws IOException {
-        FileWriter userData = new FileWriter(textfile);
+    public String save() throws IOException {
+        int i = 0;
+        FileWriter saveFile = new FileWriter(textfile);
 
-        Scene getLocation = player.getLocation();
-        List<String> getInventory =player.getItemNames();
-        userData.write(getLocation.getName());
-        userData.write("\n");
-        userData.write(String.valueOf(getInventory));
-        userData.write("\n");
-
-        userData.flush();
-        userData.close();
+        for(i=0; i< saveData.size(); i++){
+            saveFile.write(saveData.get(i) + "\n");
+        }
+        saveFile.close();
 
         return "Saved Successfully";
-}
+    }
 
 
     public String execute() throws IOException {
-        return save("filename.txt");
+        return save();
     }
 }

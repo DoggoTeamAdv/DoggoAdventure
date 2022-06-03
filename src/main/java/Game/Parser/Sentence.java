@@ -7,4 +7,15 @@ public class Sentence {
         this.verb = verb;
         this.noun = noun;
     }
+
+    private String getVerb(){
+        return this.verb.getStr();
+    }
+    private String getNoun(){
+        return this.noun.getStr();
+    }
+
+    public String convertSentence(){
+        return this.getVerb() + " " + this.getNoun();
+    }
 }

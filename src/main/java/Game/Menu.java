@@ -1,6 +1,7 @@
 package Game;
 
 import Game.Command.Command;
+import Game.Command.LoadCommand;
 import Game.Parser.Parser;
 import Game.Parser.Sentence;
 
@@ -19,6 +20,8 @@ public class Menu {
 
     String playerOption,input,output;
     boolean isMenuOptionValid = false;
+
+    LoadCommand loadCommand = new LoadCommand();
 
 
     public void showMenu() {
@@ -77,7 +80,34 @@ public class Menu {
         }while(!game.isFinished());
     }
 
-    public void loadGame() throws IOException {
+    public void loadGame() throws IOException{
+        Command command;
+        loadCommand.execute();
+        for (int i = 0; i<loadCommand.getLoad().size(); i++){
+            try {
+                Sentence sentence = pars.parse(loadCommand.getLoad().get(i));
+                command = commandFactory.getInstance(sentence);
+                command.execute();
+                System.out.println("Load Successfully");
+            }
+            catch (Exception e){
+                System.out.println(e.getMessage());
+            }
+                }
+
+        do {
+            System.out.print("Command : ");
+            input = brGame.readLine();
+            try {
+                Sentence sentence = pars.parse(input);
+                command = commandFactory.getInstance(sentence);
+                output = command.execute();
+                System.out.println(output);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }while(!game.isFinished());
+
     }
 
     public void quitGame(){
