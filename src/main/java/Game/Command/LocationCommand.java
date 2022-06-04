@@ -13,7 +13,7 @@ public class LocationCommand implements Command{
     public String location(){
         Scene playerLocation = player.getLocation();
         String sceneDescription = playerLocation.getDescription();
-        return "Location : " + playerLocation.getName() + " ( Place Description : " + sceneDescription + " ) ";
+        return "Location : " + playerLocation.getName() + "\nDescription : " + sceneDescription;
     }
 
     public String execute(){
